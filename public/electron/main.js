@@ -1,25 +1,28 @@
-const { app, BrowserWindow } = require('electron')
-const url = require("url");
-const path = require('path')
+const { app, BrowserWindow, ipcMain } = require('electron')
+const url =   require("url");
+const path =  require('path')
 const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
 
-const { IS_DEV } = process.env;
+const { IS_DEV } =    process.env;
+const { channels } =  require("../../src/shared/channels.js")
+let isTracking =      false;
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload:          path.join(__dirname, 'preload.js'),
+      nodeIntegration:  false,
     }
   })
 
   // load the app's HTML.
   mainWindow.loadURL(
     process.env.ELECTRON_START_URL || url.format({
-      pathname: path.join(__dirname, '../index.html'),
-      protocol: 'file:',
-      slashes: true,
+      pathname:   path.join(__dirname, '../index.html'),
+      protocol:   'file:',
+      slashes:    true,
     })
   )
 
@@ -47,3 +50,9 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+
+ipcMain.on(channels.TRACKER_START, () => isTracking = true)
+
+ipcMain.on( channels.TRACKER_END, () => {
+  isTracking = false;
+} )
