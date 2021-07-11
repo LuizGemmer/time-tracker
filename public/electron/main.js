@@ -1,8 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 const url = require("url");
 const path = require('path')
+const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
 
-const isDev = process.env.IS_DEV;
+const { IS_DEV } = process.env;
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -23,7 +24,7 @@ function createWindow () {
   )
 
   // Open the DevTools.
-  isDev ? mainWindow.webContents.openDevTools() : null; 
+  IS_DEV ? mainWindow.webContents.openDevTools() : null; 
 }
 
 // This method will be called when Electron has finished
@@ -31,6 +32,12 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
+
+  if (IS_DEV) {
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err));
+  }
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
