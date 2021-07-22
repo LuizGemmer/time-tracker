@@ -28,7 +28,9 @@ class Store {
    constructor() {
       // Var holding user's file's paths
       this.paths = {
-         settings: path.join( app.getPath( "userData" ), "settings.json" ) ,
+         settings: IS_DEV
+            ? "./public/electron/developmentSettings.json" 
+            : path.join( app.getPath( "userData" ), "settings.json" ) ,
          tracks: IS_DEV ? 
             "./public/electron/developmentTrack.json" :
             path.join( app.getPath( "userData" ), "tracks.json" ),
