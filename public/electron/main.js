@@ -8,8 +8,9 @@ const { Store } =     require("./Store");
 const { IS_DEV } =    process.env;
 const { channels } =  require("../../src/shared/channels.js")
 
-let isTracking =  false;
-let store =       new Store();
+let isTracking =    false;
+let currentTrack =  {}
+let store =         new Store();
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -40,11 +41,11 @@ function createWindow () {
 app.whenReady().then(() => {
   createWindow();
 
-  if (IS_DEV) {
-    installExtension( REACT_DEVELOPER_TOOLS )
-      .then(( name ) => console.log( `Added Extension:  ${ name }` ) )
-      .catch(( err ) => console.log( 'An error occurred: ', err ) )
-  }
+  // if (IS_DEV) {
+  //   installExtension( REACT_DEVELOPER_TOOLS )
+  //     .then(( name ) => console.log( `Added Extension:  ${ name }` ) )
+  //     .catch(( err ) => console.log( 'An error occurred: ', err ) )
+  // }
 
   app.on('activate', function () {
     if ( BrowserWindow.getAllWindows().length === 0 ) createWindow();
@@ -60,7 +61,10 @@ app.on('window-all-closed', function () {
   } 
 })
 
-ipcMain.on(channels.TRACKER_START, () => isTracking = true );
+ipcMain.on(channels.TRACKER_START, track => {
+  isTracking = true;
+  currentTrack = track;
+} );
 
 ipcMain.on( channels.TRACKER_STOP, ( e, track ) => {
   isTracking = false;
