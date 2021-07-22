@@ -62,18 +62,18 @@ export default class MVPMainWindow extends Component {
 			started: 				0,
 		};
 
-		// const [ projects, track ] = ipcRenderer.sendSync( channels.APP_INIT );
+		const [ projects, track ] = ipcRenderer.sendSync( channels.APP_INIT );
 		this.state.projects = projects
 		this.state.trackerProject = projects[0]
 
-		// if (track) {
-		// 	this.state = {
-		// 		description: 		track.description,
-		// 		trackerProject: 	track.project,
-		// 		started: 			track.start,
-		// 		time: 				(track.start - Date.now()) / 1000,
-		// 	};
-		// }
+		if (track) {
+			this.state = {
+				description: 		track.description,
+				trackerProject: 	track.project,
+				started: 			track.start,
+				time: 				(track.start - Date.now()) / 1000,
+			};
+		}
 
 		this.addProject = this.addProject.bind(this);
 		this.toggleTracking = this.toggleTracking.bind(this);
@@ -108,7 +108,7 @@ export default class MVPMainWindow extends Component {
 				started: 		0,
 			});
 
-			// ipcRenderer.send(channels.TRACKER_STOP, track);
+			ipcRenderer.send(channels.TRACKER_STOP, track);
 		} else {
 			const tracker = setInterval(
 				() => this.setState({
@@ -119,7 +119,7 @@ export default class MVPMainWindow extends Component {
 			);
 			this.setState({ started: Date.now(), tracker });
 
-			// ipcRenderer.send(channels.TRACKER_START);
+			ipcRenderer.send(channels.TRACKER_START);
 		}
 	}
 
