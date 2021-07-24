@@ -1,1 +1,43 @@
-{"projectId":5,"trackId":2,"projects":{"No Project":{"id":0,"name":"No Project","tracks":[]},"Developing The App":{"name":"Developing The App","tracks":[{"description":"My First Track on the MVP","project":"Developing The App","time":10,"started":1626137058480,"end":1626137068800,"id":1}],"id":1}}}
+{
+	"projectId": 6,
+	"trackId": 44,
+	"projects": {
+		"No Project": { "id": 0, "name": "No Project", "tracks": [] },
+		"Developing The App": {
+			"name": "Developing The App",
+			"tracks": [
+				{
+					"description": "My First Track on the MVP",
+					"project": "Developing The App",
+					"time": 10,
+					"started": 1626137058480,
+					"end": 1626137068800,
+					"id": 1
+				},
+				{
+					"description": "Cleaning code for the MVP",
+					"project": "Developing The App",
+					"time": 3,
+					"started": 1627163038526,
+					"end": 1627163041835,
+					"id": 19
+				}
+			],
+			"id": 1
+		},
+		"test": {
+			"name": "test",
+			"tracks": [
+				{
+					"description": "testing saving function in case app closes without proper track stop",
+					"project": "test",
+					"started": 1627168383775,
+					"end": 1627168386288,
+					"time": 3,
+					"id": 43
+				}
+			],
+			"id": 5
+		}
+	}
+}
