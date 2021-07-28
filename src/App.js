@@ -1,12 +1,12 @@
 import './App.css';
-import MVPMainWindow from "./MVPMainWindow"
+import Home from "./windows/Home"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         やはろお
-        <MVPMainWindow />
+        <Home />
       </header>
     </div>
   );
