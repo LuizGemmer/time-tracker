@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import useIPC from "../hooks/useIPC"
-import useTimer from "../hooks/useTimer"
+import useTracker from '../hooks/useTracker';
 import { channels } from '../shared/channels';
 
 export default function Home() {
@@ -9,18 +9,19 @@ export default function Home() {
    
    let constructor = ipc.constructor();
    let [ projects, track ] = constructor( channels.APP_INIT );
-   const timer = useTimer( track );
+   const tracker = useTracker( track );
 
    if ( !track ) {
       track = {
          description: "",
-         project:     "",
+         project:     projects[0],
          start:       0
       };
    };
    
    const [ description, setDescription ] = useState( track.description );
    const [ trackProject, setTrackProject ] = useState( track.project );
+
    const [ options, setOptions ] = useState( projects );
       
    const [ newProject, setNewProject ] = useState( "" );
@@ -39,10 +40,11 @@ export default function Home() {
    };
 
    const startTrack = () => {
-      timer.start();
+      tracker.start();
       ipc.async( channels.TRACKER_START, {
          description,
-         start: Date.now(),
+         ...tracker.track,
+         ...tracker.settings,
          project: trackProject,
       } );
    };
@@ -51,7 +53,7 @@ export default function Home() {
       const track = {
          description,
          project: trackProject,
-         ...timer.stop()
+         ...tracker.stop(),
       };
       ipc.async( channels.TRACKER_STOP, track );
    };
@@ -87,12 +89,12 @@ export default function Home() {
 
             <input
                type=		"button"
-               onClick=	{ timer.isTracking ? stopTrack : startTrack }
-               value=	{ timer.isTracking ? "Stop Tracking" : "Start Tracking" }
+               onClick=	{ tracker.track.isTracking ? stopTrack : startTrack }
+               value=	{ tracker.track.isTracking ? "Stop Tracking" : "Start Tracking" }
             />
          </form>
 
-         <h3>{ timer.formatTimeToString( timer.time ) }</h3>
+         <h3>{ tracker.formatTimeToString( tracker.track.time ) }</h3>
       </div>
    );
 };

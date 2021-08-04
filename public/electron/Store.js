@@ -53,6 +53,10 @@ class Store {
       track.id = this.tracks.trackId;
       ++ this.tracks.trackId;
       
+      // Removes pomodoro related properties
+      delete track.isTracking;
+      delete track.nextStage;
+      
       const { project } = track;
       this.tracks.projects[ project ].tracks.push( track ); 
    }

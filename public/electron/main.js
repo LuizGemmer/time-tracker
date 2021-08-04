@@ -72,6 +72,11 @@ ipcMain.on( channels.TRACKER_START, ( e, track ) => {
   currentTrack = track; // Saves track so it don't get lost in case of the window reloading
 });
 
+ipcMain.on( channels.UPDATE_TRACK, ( e, track ) => {
+  // Updates the track every pomodoro cycle to prevent loses due to window reloading
+  currentTrack = { ...currentTrack, ...track };
+} )
+
 ipcMain.on( channels.TRACKER_STOP, ( e, track ) => {
   isTracking = false;
   currentTrack = {}; // Resets the saved track
