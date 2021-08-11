@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
+import Helpers from "../styles/Helpers" 
 import useIPC from "../hooks/useIPC"
 import useTracker from '../hooks/useTracker';
 import { channels } from '../shared/channels';
+
+import { Button } from "@material-ui/core";
 
 export default function Home() {
    const ipc = useIPC();
@@ -59,7 +62,7 @@ export default function Home() {
    };
 
    return (
-      <div>
+      <Helpers.Container>
          <form>
             <input
                type=		"text"
@@ -70,13 +73,13 @@ export default function Home() {
          </form>
 
          <form>
-            <input
+            <Helpers.TextInput
                type=		"text"
                value=	{ description }
                onChange={ e => setDescription( e.target.value ) }
             />
 
-            <select
+            <Helpers.SelectInput
                value=	{ trackProject }
                onChange={ e => setTrackProject( e.target.value ) }
             >
@@ -85,16 +88,19 @@ export default function Home() {
                      { project }
                   </option>
                ) ) }
-            </select>
+            </Helpers.SelectInput>
 
-            <input
+            <Button
                type=		"button"
+               color=   "primary"
                onClick=	{ tracker.track.isTracking ? stopTrack : startTrack }
-               value=	{ tracker.track.isTracking ? "Stop Tracking" : "Start Tracking" }
-            />
+               variant= "contained"
+            > 
+               { tracker.track.isTracking ? "Stop Tracking" : "Start Tracking" } 
+            </Button>
          </form>
 
          <h3>{ tracker.formatTimeToString( tracker.track.time ) }</h3>
-      </div>
+      </Helpers.Container>
    );
 };
