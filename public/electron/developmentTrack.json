@@ -1,1 +1,300 @@
-{"projectId":6,"trackId":136,"projects":{"No Project":{"id":0,"name":"No Project","tracks":[{"description":"","project":"No Project","time":3,"start":1628811963522,"end":1628811966702,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":102},{"description":"","project":"No Project","time":43,"start":1628898641663,"end":1628898685134,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":114},{"description":"","project":"No Project","time":9,"start":1628899346229,"end":1628899355624,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":115},{"description":"","project":"No Project","time":4,"start":1628900084946,"end":1628900089208,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":118},{"description":"","project":"No Project","time":6,"start":1628900171309,"end":1628900177035,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":119},{"description":"","project":"No Project","time":32,"start":1628900182864,"end":1628900214693,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":120},{"description":"","project":"No Project","time":1,"start":1628900250581,"end":1628900251402,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":121},{"description":"","project":"No Project","time":11,"start":1628900253232,"end":1628900264608,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":122},{"description":"","project":"No Project","time":21,"start":1628900295172,"end":1628900315785,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":123},{"description":"","project":"No Project","time":16,"start":1628900386643,"end":1628900402515,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":124},{"description":"","project":"No Project","time":26,"start":1628900607974,"end":1628900633959,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":125},{"description":"","project":"No Project","time":209,"start":1628900759063,"end":1628900968359,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":126},{"description":"","project":"No Project","time":40,"start":1628900970357,"end":1628901010248,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":127},{"description":"","project":"No Project","time":29,"start":1628901361387,"end":1628901390438,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":128},{"description":"","project":"No Project","time":62,"start":1628903011221,"end":1628903073481,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":129},{"description":"","project":"No Project","time":26,"start":1628903076118,"end":1628903101996,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":130},{"description":"","project":"No Project","time":4,"start":1628903279648,"end":1628903283532,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":131},{"description":"","project":"No Project","time":119,"start":1628903312925,"end":1628903431478,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":132},{"description":"","project":"No Project","time":13,"start":1628903533657,"end":1628903546890,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":133},{"description":"","project":"No Project","time":19,"start":1628903562676,"end":1628903581351,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":134},{"description":"","project":"No Project","time":34,"start":1628903618874,"end":1628903652474,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":135}]},"Developing The App":{"name":"Developing The App","tracks":[{"description":"My First Track on the MVP","project":"Developing The App","time":10,"started":1626137058480,"end":1626137068800,"id":1},{"description":"Cleaning code for the MVP","project":"Developing The App","time":3,"started":1627163038526,"end":1627163041835,"id":19},{"description":"Coding the useIPC hook","project":"Developing The App","time":570,"started":1627232143856,"end":1627232714487,"id":44},{"description":"Coding useTImer hook","project":"Developing The App","time":1989,"started":1627232725193,"end":1627234714243,"id":45},{"description":"Coding the useTimer hook","project":"Developing The App","time":904,"started":1627237156939,"end":1627238061423,"id":46},{"description":"Rewriting the main window","project":"Developing The App","time":2302,"started":1627240655293,"end":1627242957405,"id":47},{"description":"","project":"Developing The App","time":null,"start":1628034197408,"end":1628034191553,"id":66},{"description":"Making the clock","project":"Developing The App","time":85,"start":1628811585211,"end":1628811670130,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":95},{"description":"learning css transitions","project":"Developing The App","time":642,"start":1628897435879,"end":1628898077674,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":106},{"description":"learning css transitions","project":"Developing The App","time":2,"start":1628898080584,"end":1628898082092,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":107},{"description":"learning css transitions","project":"Developing The App","time":2,"start":1628898156664,"end":1628898159098,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":108},{"description":"learning css transitions","project":"Developing The App","time":28,"start":1628898213317,"end":1628898240853,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":109}],"id":1},"test":{"name":"test","tracks":[{"description":"testing the play button 01","project":"test","time":6,"start":1628811691655,"end":1628811697583,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":96},{"description":"testing the play button 01","project":"test","time":1,"start":1628811699975,"end":1628811700845,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":97},{"description":"testing the play button 01","project":"test","time":4,"start":1628811702519,"end":1628811706682,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":98},{"description":"testing the play button 01","project":"test","time":9,"start":1628811720156,"end":1628811729422,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":99},{"description":"testing the play button 01","project":"test","time":1,"start":1628811820815,"end":1628811822277,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":100},{"description":"testing the play button 01","project":"test","time":2,"start":1628811859965,"end":1628811861702,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":101},{"description":"testing the degree calculation algorithim","project":"test","time":49,"start":1628814018796,"end":1628814067625,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":103},{"description":"testing the degree calculation algorithim","project":"test","time":36,"start":1628814187930,"end":1628814223954,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":104},{"description":"testing the degree calculation algorithim","project":"test","time":16,"start":1628814237066,"end":1628814253312,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":105},{"description":"testing the transition","project":"test","time":32,"start":1628898440752,"end":1628898472377,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":110},{"description":"testing the transition","project":"test","time":6,"start":1628898498482,"end":1628898504892,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":111},{"description":"testing the transition","project":"test","time":4,"start":1628898510980,"end":1628898515313,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":112},{"description":"testing the transition","project":"test","time":5,"start":1628898531653,"end":1628898536665,"usedPomodoro":true,"pomodoro":{"workTime":1500,"restTime":300},"id":113},{"description":"testing the animations","project":"test","time":70,"start":1628899592710,"end":1628899662491,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":116},{"description":"testing the animations","project":"test","time":131,"start":1628899667480,"end":1628899798029,"usedPomodoro":true,"pomodoro":{"workTime":60,"restTime":300},"id":117}],"id":5}}}
+{
+  "projectId": 16,
+  "trackId": 160,
+  "projects": {
+    "No Project": {
+      "id": 0,
+      "name": "No Project",
+      "tracks": []
+    },
+    "Developing The App": {
+      "name": "Developing The App",
+      "tracks": [
+        {
+          "description": "My First Track on the MVP",
+          "project": "Developing The App",
+          "time": 10,
+          "started": 1626137058480,
+          "end": 1626137068800,
+          "id": 1
+        },
+        {
+          "description": "Cleaning code for the MVP",
+          "project": "Developing The App",
+          "time": 3,
+          "started": 1627163038526,
+          "end": 1627163041835,
+          "id": 19
+        },
+        {
+          "description": "Coding the useIPC hook",
+          "project": "Developing The App",
+          "time": 570,
+          "started": 1627232143856,
+          "end": 1627232714487,
+          "id": 44
+        },
+        {
+          "description": "Coding useTImer hook",
+          "project": "Developing The App",
+          "time": 1989,
+          "started": 1627232725193,
+          "end": 1627234714243,
+          "id": 45
+        },
+        {
+          "description": "Coding the useTimer hook",
+          "project": "Developing The App",
+          "time": 904,
+          "started": 1627237156939,
+          "end": 1627238061423,
+          "id": 46
+        },
+        {
+          "description": "Rewriting the main window",
+          "project": "Developing The App",
+          "time": 2302,
+          "started": 1627240655293,
+          "end": 1627242957405,
+          "id": 47
+        },
+        {
+          "description": "",
+          "project": "Developing The App",
+          "time": null,
+          "start": 1628034197408,
+          "end": 1628034191553,
+          "id": 66
+        },
+        {
+          "description": "Making the clock",
+          "project": "Developing The App",
+          "time": 85,
+          "start": 1628811585211,
+          "end": 1628811670130,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 95
+        },
+        {
+          "description": "learning css transitions",
+          "project": "Developing The App",
+          "time": 642,
+          "start": 1628897435879,
+          "end": 1628898077674,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 106
+        },
+        {
+          "description": "learning css transitions",
+          "project": "Developing The App",
+          "time": 2,
+          "start": 1628898080584,
+          "end": 1628898082092,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 107
+        },
+        {
+          "description": "learning css transitions",
+          "project": "Developing The App",
+          "time": 2,
+          "start": 1628898156664,
+          "end": 1628898159098,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 108
+        },
+        {
+          "description": "learning css transitions",
+          "project": "Developing The App",
+          "time": 28,
+          "start": 1628898213317,
+          "end": 1628898240853,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 109
+        },
+        {
+          "description": "testing the project selector",
+          "project": "Developing The App",
+          "time": 4,
+          "start": 1629049325382,
+          "end": 1629049329765,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 60, "restTime": 300 },
+          "id": 138
+        }
+      ],
+      "id": 1
+    },
+    "test": {
+      "name": "test",
+      "tracks": [
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 6,
+          "start": 1628811691655,
+          "end": 1628811697583,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 96
+        },
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 1,
+          "start": 1628811699975,
+          "end": 1628811700845,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 97
+        },
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 4,
+          "start": 1628811702519,
+          "end": 1628811706682,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 98
+        },
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 9,
+          "start": 1628811720156,
+          "end": 1628811729422,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 99
+        },
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 1,
+          "start": 1628811820815,
+          "end": 1628811822277,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 100
+        },
+        {
+          "description": "testing the play button 01",
+          "project": "test",
+          "time": 2,
+          "start": 1628811859965,
+          "end": 1628811861702,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 101
+        },
+        {
+          "description": "testing the degree calculation algorithim",
+          "project": "test",
+          "time": 49,
+          "start": 1628814018796,
+          "end": 1628814067625,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 103
+        },
+        {
+          "description": "testing the degree calculation algorithim",
+          "project": "test",
+          "time": 36,
+          "start": 1628814187930,
+          "end": 1628814223954,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 104
+        },
+        {
+          "description": "testing the degree calculation algorithim",
+          "project": "test",
+          "time": 16,
+          "start": 1628814237066,
+          "end": 1628814253312,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 105
+        },
+        {
+          "description": "testing the transition",
+          "project": "test",
+          "time": 32,
+          "start": 1628898440752,
+          "end": 1628898472377,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 110
+        },
+        {
+          "description": "testing the transition",
+          "project": "test",
+          "time": 6,
+          "start": 1628898498482,
+          "end": 1628898504892,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 111
+        },
+        {
+          "description": "testing the transition",
+          "project": "test",
+          "time": 4,
+          "start": 1628898510980,
+          "end": 1628898515313,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 112
+        },
+        {
+          "description": "testing the transition",
+          "project": "test",
+          "time": 5,
+          "start": 1628898531653,
+          "end": 1628898536665,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 1500, "restTime": 300 },
+          "id": 113
+        },
+        {
+          "description": "testing the animations",
+          "project": "test",
+          "time": 70,
+          "start": 1628899592710,
+          "end": 1628899662491,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 60, "restTime": 300 },
+          "id": 116
+        },
+        {
+          "description": "testing the animations",
+          "project": "test",
+          "time": 131,
+          "start": 1628899667480,
+          "end": 1628899798029,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 60, "restTime": 300 },
+          "id": 117
+        },
+        {
+          "description": "testing the project selector",
+          "project": "test",
+          "time": 19,
+          "start": 1629049243456,
+          "end": 1629049262949,
+          "usedPomodoro": true,
+          "pomodoro": { "workTime": 60, "restTime": 300 },
+          "id": 137
+        }
+      ],
+      "id": 5
+    },
+    "undefined": { "tracks": [], "id": 15 }
+  }
+}

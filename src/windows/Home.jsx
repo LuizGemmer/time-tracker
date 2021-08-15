@@ -5,8 +5,7 @@ import useIPC from "../hooks/useIPC"
 import useTracker from '../hooks/useTracker';
 import { channels } from '../shared/channels';
 import Clock from '../Clock';
-
-import { Button } from "@material-ui/core";
+import { Button } from '@material-ui/core';
 
 export default function Home() {
    const ipc = useIPC();
@@ -71,31 +70,75 @@ export default function Home() {
             isTracking={ tracker.track.isTracking }
             cycleCompletion={ tracker.getCycleConclusion() }
          > 
-            <h3>{ tracker.formatTimeToString( tracker.track.time ) }</h3>      
+            <Helpers.Font
+               size="18px"
+               weight="600"
+               margin=".3rem"
+            >
+               { tracker.formatTimeToString( tracker.track.time ) }
+            </Helpers.Font>
+            <Helpers.Font
+               size="12px"
+               tone="secondary"
+            >
+               { 
+               tracker.track.isTracking 
+                  ? tracker.formatTimeToString( tracker.getElapsedTime( tracker.track.start ) ) 
+                  : undefined
+               }
+            </Helpers.Font> 
+
          </Clock>
 
-         <form>
-            <Helpers.Label>
+         <Helpers.CenterFlex
+            height="auto"
+            margin="1rem"
+         >
+            <Helpers.Label width="65%">
                What are you doing?
                <Helpers.TextInput
                   type=		"text"
                   value=	{ description }
-                  width="60%"
                   onChange={ e => setDescription( e.target.value ) }
                />
             </Helpers.Label>
 
-            <Helpers.SelectInput
-               value=	{ trackProject }
-               onChange={ e => setTrackProject( e.target.value ) }
+            <Helpers.Label width="25%" >
+               Project:
+               <Helpers.SelectInput
+                  value=	{ trackProject }
+                  onChange={ e => setTrackProject( e.target.value ) }
+               >
+                  { options.map( project => (
+                     <option value={ project } key={ project }>
+                        { project }
+                     </option>
+                  ) ) }
+               </Helpers.SelectInput>
+            </Helpers.Label>
+         </Helpers.CenterFlex>
+
+         <Helpers.CenterFlex
+            height="auto"
+            margin="1rem"
+         >
+            <Helpers.Label width="65%">
+               Starting a new project, how're you gonna name it?
+               <Helpers.TextInput
+                  type=		"text"
+                  value=	{ description }
+                  onChange={ e => setDescription( e.target.value ) }
+               />
+            </Helpers.Label>
+            <Button 
+               onClick={ addProject } 
+               style={{ alignSelf: "flex-end", height: "70%", marginLeft: ".3rem" }}
+               color="primary"
+               variant="contained"
             >
-               { options.map( project => (
-                  <option value={ project } key={ project }>
-                     { project }
-                  </option>
-               ) ) }
-            </Helpers.SelectInput>
-         </form>
+               Add it
+            </Button>
+         </Helpers.CenterFlex>
 
       </Helpers.CenterFlex>
    );

@@ -13,8 +13,8 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
    const ipc = useIPC();
    
    const [ settings ] = useState( {
-      workTime: currentTrack ? currentTrack.workTime : 1 * 60,
-      restTime: currentTrack ? currentTrack.restTime : 5 * 60,
+      workTime: currentTrack ? currentTrack.workTime : 0.5 * 60,
+      restTime: currentTrack ? currentTrack.restTime : 0.9 * 60,
    } );
 
    const [ track, setTrack ] = useState( {
@@ -54,10 +54,10 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
          if ( time === 0 ) {
             setTrack({ 
                ...track,
-               // Alternates between rest and work cycles
-               nextStage:  nextStage === "restTime" ? "workTime" : "restTime",
                // Sets the correct time for the countdown
                time:       settings[ nextStage ],
+               // Alternates between rest and work cycles
+               nextStage:  nextStage === "restTime" ? "workTime" : "restTime",
             });            
          } else {
             setTrack( { ...track, time: time - 1 } );
@@ -154,13 +154,15 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
     */
    function getCycleConclusion() {
       let completion = ( 
-         track.nextStage 
+         track.nextStage === "restTime"
             ? 1 - track.time / settings.workTime
             : 1 - track.time / settings.restTime
       );
 
+      console.log(completion, track.time, settings.restTime, track.nextStage )
+
       completion *= 1000;
-      return Math.round( completion ) / 1000;
+      return ( Math.round( completion ) / 1000 );
    }
 
    return {
@@ -170,5 +172,6 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       stop,
       formatTimeToString,
       getCycleConclusion,
+      getElapsedTime
    }
 };

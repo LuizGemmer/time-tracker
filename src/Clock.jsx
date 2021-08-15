@@ -5,6 +5,7 @@ import StopIcon from "@material-ui/icons/StopOutlined"
 
 import ClockStyles from "./styles/Clock"
 import { IconButton } from '@material-ui/core';
+import Helpers from './styles/Helpers';
 
 export default function Clock( props ) {
   const [ degree, setDegree ] = useState( 0 );
@@ -36,7 +37,9 @@ export default function Clock( props ) {
             }
           </IconButton>
 
-          { props.children }          
+          <Helpers.Flex column>
+            { props.children }          
+          </Helpers.Flex>
         </ClockStyles.Content>
 
       </ClockStyles.PrimaryCircle>
