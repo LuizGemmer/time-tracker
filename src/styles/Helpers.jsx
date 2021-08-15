@@ -8,12 +8,13 @@ const Container = styled.div`
    height: ${ props => props.height || "100%" }
 `
 
-const FlexContainer = styled(Container)`
+const FlexContainer = styled( Container )`
    display: flex;
+   flex-direction: ${ props => props.column ? "column" : "row" };
 `
 
 const CenterFlex = styled( FlexContainer )`
-   aling-items: center;
+   align-items: center;
    justify-content: center;
 `;
 
@@ -27,8 +28,10 @@ const TextInput = styled.input`
    border: none;
    border-bottom: 2px solid ${ props => props.theme.palette.primary.main };
 
+   width: ${ props => props.width || "auto" };
+
    padding: .5rem 1rem;
-   margin: .5rem;
+   margin: 0.3rem 0;
 
    &:focus {
       outline: 0;
@@ -60,9 +63,16 @@ const SelectInput = styled.select`
    }
 `;
 
+const Label = styled.label`
+   display: flex;
+   flex-direction column;
+
+   color: ${ props => props.theme.palette.text.secondary };
+`;
+
 const Helpers = {
    Container, FlexContainer, CenterFlex,
-   TextInput, SelectInput, Option
+   TextInput, SelectInput, Label
 }
 
 export default Helpers;

@@ -4,6 +4,7 @@ import Helpers from "../styles/Helpers"
 import useIPC from "../hooks/useIPC"
 import useTracker from '../hooks/useTracker';
 import { channels } from '../shared/channels';
+import Clock from '../Clock';
 
 import { Button } from "@material-ui/core";
 
@@ -62,22 +63,27 @@ export default function Home() {
    };
 
    return (
-      <Helpers.Container>
-         <form>
-            <input
-               type=		"text"
-               value=	{ newProject }
-               onChange={ (event) => setNewProject( event.target.value ) }
-            />
-            <input type="button" onClick={ addProject } value="Add Project" />
-         </form>
+      <Helpers.CenterFlex column>
+         <Clock 
+            toggleTracking={ 
+               tracker.track.isTracking ? stopTrack : startTrack
+            }
+            isTracking={ tracker.track.isTracking }
+            cycleCompletion={ tracker.getCycleConclusion() }
+         > 
+            <h3>{ tracker.formatTimeToString( tracker.track.time ) }</h3>      
+         </Clock>
 
          <form>
-            <Helpers.TextInput
-               type=		"text"
-               value=	{ description }
-               onChange={ e => setDescription( e.target.value ) }
-            />
+            <Helpers.Label>
+               What are you doing?
+               <Helpers.TextInput
+                  type=		"text"
+                  value=	{ description }
+                  width="60%"
+                  onChange={ e => setDescription( e.target.value ) }
+               />
+            </Helpers.Label>
 
             <Helpers.SelectInput
                value=	{ trackProject }
@@ -89,18 +95,8 @@ export default function Home() {
                   </option>
                ) ) }
             </Helpers.SelectInput>
-
-            <Button
-               type=		"button"
-               color=   "primary"
-               onClick=	{ tracker.track.isTracking ? stopTrack : startTrack }
-               variant= "contained"
-            > 
-               { tracker.track.isTracking ? "Stop Tracking" : "Start Tracking" } 
-            </Button>
          </form>
 
-         <h3>{ tracker.formatTimeToString( tracker.track.time ) }</h3>
-      </Helpers.Container>
+      </Helpers.CenterFlex>
    );
 };

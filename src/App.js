@@ -7,16 +7,17 @@ import { ThemeProvider as StyleTheme } from "styled-components"
 
 function App() {
   return (
-    <Helpers.CenterFlex>
+    <Helpers.CenterFlex column>
+      
       <ThemeProvider theme={ theme }>
         <StyleTheme theme={ theme }>
+          
           <GlobalStyles />
-          <header className="App-header">
-            やはろお
-            <Home />
-          </header>
+
+          <Home />
         </StyleTheme>
       </ThemeProvider>
+
     </Helpers.CenterFlex>
   );
 }

@@ -13,7 +13,7 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
    const ipc = useIPC();
    
    const [ settings ] = useState( {
-      workTime: currentTrack ? currentTrack.workTime : 25 * 60,
+      workTime: currentTrack ? currentTrack.workTime : 1 * 60,
       restTime: currentTrack ? currentTrack.restTime : 5 * 60,
    } );
 
@@ -147,11 +147,28 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       return `${ hoursString || ""}${ minuteString || "" }${ secondsString }`;
    };
 
+   /**
+    * How much of the cycle was completed so far rounded to
+    * 3 decimal places
+    * @returns {number} percent completed of the cycle
+    */
+   function getCycleConclusion() {
+      let completion = ( 
+         track.nextStage 
+            ? 1 - track.time / settings.workTime
+            : 1 - track.time / settings.restTime
+      );
+
+      completion *= 1000;
+      return Math.round( completion ) / 1000;
+   }
+
    return {
       track,
       settings,
       start,
       stop,
       formatTimeToString,
+      getCycleConclusion,
    }
 };
