@@ -159,8 +159,6 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
             : 1 - track.time / settings.restTime
       );
 
-      console.log(completion, track.time, settings.restTime, track.nextStage )
-
       completion *= 1000;
       return ( Math.round( completion ) / 1000 );
    }

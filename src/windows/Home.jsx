@@ -10,9 +10,9 @@ import { Button } from '@material-ui/core';
 export default function Home() {
    const ipc = useIPC();
    
-   let constructor = ipc.constructor();
-   let [ projects, track ] = constructor( channels.APP_INIT );
-   const tracker = useTracker( track );
+   let constructor =          ipc.constructor();
+   let [ projects, track ] =  constructor( channels.APP_INIT );
+   const tracker =            useTracker( track );
 
    if ( !track ) {
       track = {
@@ -22,12 +22,10 @@ export default function Home() {
       };
    };
    
-   const [ description, setDescription ] = useState( track.description );
+   const [ description, setDescription ] =   useState( track.description );
    const [ trackProject, setTrackProject ] = useState( track.project );
-
-   const [ options, setOptions ] = useState( projects );
-      
-   const [ newProject, setNewProject ] = useState( "" );
+   const [ options, setOptions ] =           useState( projects );
+   const [ newProject, setNewProject ] =     useState( "" );
 
    const addProject = () => {
       let project = {

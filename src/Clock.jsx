@@ -12,12 +12,12 @@ export default function Clock( props ) {
 
   useEffect(() => {
     setDegree( 360 * props.cycleCompletion );
-  }, [props.cycleCompletion])
+  }, [ props.cycleCompletion ])
 
   return (
     <ClockStyles.SquareDiv // Makes the container for the clock square
       width="65%"
-      >
+    >
       <ClockStyles.PrimaryCircle> 
 
         <ClockStyles.SecondaryCircle degree={ degree } /> 
