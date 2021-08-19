@@ -9,9 +9,7 @@ import useIPC from "./useIPC";
  * @param {Boolean} shouldUsePomodoro 
  * @returns Functions to deal with the tracker
  */
-export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
-   const ipc = useIPC();
-   
+export default function useTracker( currentTrack, shouldUsePomodoro = true ) {   
    const [ settings ] = useState( {
       workTime: currentTrack ? currentTrack.workTime : 0.5 * 60,
       restTime: currentTrack ? currentTrack.restTime : 0.9 * 60,
@@ -92,6 +90,7 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
     * due to window reload, made for use in development
     */
    function update() {
+      const ipc = useIPC();
       ipc.async( channels.UPDATE_TRACK, { ...track, ...settings } );
    };
 
