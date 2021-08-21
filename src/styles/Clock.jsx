@@ -9,6 +9,7 @@ const SquareDiv = styled.div`
   
   position: relative;
   width:    ${ props => props.width || "auto" };
+  max-width: 400px; 
 
   &:after {
     content:        "";
