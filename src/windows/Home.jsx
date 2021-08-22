@@ -60,7 +60,7 @@ export default function Home() {
    };
 
    return (
-      <Helpers.CenterFlex column>
+      <Helpers.CenterFlex column margin="0" width ="100%">
          <Clock 
             toggleTracking={ 
                tracker.track.isTracking ? stopTrack : startTrack
@@ -95,6 +95,7 @@ export default function Home() {
             <Helpers.Label width="65%">
                What are you doing?
                <Helpers.TextInput
+                  transparent
                   type=		"text"
                   value=	{ description }
                   onChange={ e => setDescription( e.target.value ) }
@@ -104,8 +105,9 @@ export default function Home() {
             <Helpers.Label width="25%" >
                Project:
                <Helpers.SelectInput
-                  value=	{ trackProject }
-                  onChange={ e => setTrackProject( e.target.value ) }
+                  transparent
+                  value=	{ newProject }
+                  onChange={ e => setNewProject( e.target.value ) }
                >
                   { options.map( project => (
                      <option value={ project } key={ project }>
@@ -123,6 +125,7 @@ export default function Home() {
             <Helpers.Label width="65%">
                Starting a new project, how're you gonna name it?
                <Helpers.TextInput
+                  transparent
                   type=		"text"
                   value=	{ description }
                   onChange={ e => setDescription( e.target.value ) }

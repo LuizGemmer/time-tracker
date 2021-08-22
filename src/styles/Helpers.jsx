@@ -34,6 +34,8 @@ const TextInput = styled.input`
    padding: .5rem 1rem;
    margin:  0.3rem;
 
+   border-radius: 3px;
+
    &:focus {
       outline: 0;
       background: ${ props => (
@@ -53,6 +55,7 @@ const SelectInput = styled.select`
    color:         ${ props => props.theme.palette.text.primary };
    border:        none;
    border-bottom: 2px solid ${ props => props.theme.palette.primary.main };
+   border-radius: 3px;
 
    padding: .5rem 1rem;
    margin:  .3rem;
@@ -61,6 +64,11 @@ const SelectInput = styled.select`
 
    &:active, &:focus {
       outline: none;
+      background: ${ props => (
+         props.transparent
+            ? props.theme.palette.background.paper
+            : "inherit"
+      )}
    }
 `;
 
