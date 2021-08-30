@@ -46,8 +46,8 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
          setSettings({
             workTime: currentTrack.workTime,
             restTime: currentTrack.restTime
-         })
-      }
+         });
+      };
    }
 
    /**
@@ -69,13 +69,13 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
          return [
             workTime - currentCycleTime,
             "restTime"
-         ]
+         ];
       } else {
          return [
             restTime - ( currentCycleTime - workTime ),
             "workTime"
-         ]
-      }
+         ];
+      };
    }
 
    // Actual timer, will not run except tracker.isTracking === true
