@@ -12,19 +12,71 @@ import useIPC from "./useIPC";
 export default function useTracker( currentTrack, shouldUsePomodoro = true ) {   
    const ipc = useIPC();
 
-   const [ settings ] = useState( {
-      workTime: currentTrack ? currentTrack.workTime : 25 * 60,
-      restTime: currentTrack ? currentTrack.restTime : 5 * 60,
+   // set initial state
+   const [ settings, setSettings ] = useState( {
+      workTime: 25 * 60,
+      restTime: 5 * 60,
    } );
 
    const [ track, setTrack ] = useState( {
-      time: currentTrack 
-         ? currentTrack.time
-         : ( shouldUsePomodoro ? settings.workTime : 0 ),
-      isTracking: currentTrack ? true : false,
-      start: currentTrack ? currentTrack.start : undefined,
+      time: shouldUsePomodoro ? settings.workTime : 0,
+      isTracking: false,
+      start: undefined,
       nextStage: "restTime",
    } );
+
+   // this updates the state when the home component updates after the data fecth,
+   // otherwise the state would not change, inturupting the track after
+   // window reload 
+   if ( currentTrack && currentTrack.start !== track.start ) {
+      // get pomodoro state
+      const [ pomodoroTime, stage ] = shouldUsePomodoro 
+         ? getPomodoroState( currentTrack )
+         : undefined
+
+      // updates the state
+      setTrack({
+         time:       shouldUsePomodoro ? pomodoroTime : currentTrack.time,
+         isTracking: true,
+         start:      currentTrack.start,
+         nextStage:  shouldUsePomodoro ? stage : "restTime" 
+      });
+
+      if ( shouldUsePomodoro ) {
+         setSettings({
+            workTime: currentTrack.workTime,
+            restTime: currentTrack.restTime
+         })
+      }
+   }
+
+   /**
+    * Calculate the pomodoro state based on the start time of the track,
+    * returning the remaining time in the cycle and the next stage as a array
+    * @param {Track Object} currentTrack 
+    * @returns [ remaining time in cycle, nextStage ]
+    */
+
+   function getPomodoroState( currentTrack ) {
+      const { workTime, restTime, start } = currentTrack;
+
+      const elapsedTime =           getElapsedTime( start );
+      const pomodoroCycleLength =   workTime + restTime;
+      const fullCycles =            Math.floor( elapsedTime / pomodoroCycleLength );
+      const currentCycleTime =      elapsedTime - ( fullCycles * pomodoroCycleLength );
+
+      if ( currentCycleTime <= workTime ) {
+         return [
+            workTime - currentCycleTime,
+            "restTime"
+         ]
+      } else {
+         return [
+            restTime - ( currentCycleTime - workTime ),
+            "workTime"
+         ]
+      }
+   }
 
    // Actual timer, will not run except tracker.isTracking === true
    useEffect(() => {
@@ -42,6 +94,21 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       };
    });
 
+   // Updates the main process every time the track start or ends ( or window reloads )
+   useEffect(() => {
+      if ( track.isTracking ) {
+         update();
+      }
+   }, [ track.isTracking ])
+
+   /**
+    * Updates the render process every second, preventing loses 
+    * due to window reload, made for use in development
+    */
+   function update() {
+      ipc.async( channels.UPDATE_TRACK, { ...track, ...settings } );
+   };
+   
    /**
     * Creates a timer that counts downwards, alternating between
     * work and rest time accordingly
@@ -62,8 +129,6 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
          } else {
             setTrack( { ...track, time: time - 1 } );
          };
-
-         update();
       }, 1000 );
    };
 
@@ -76,7 +141,6 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
 
       return setTimeout( () => {
          setTrack( { ...track, time: time + 1 } );
-         update();
       }, 1000 );
    }
 
@@ -87,13 +151,6 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       setTrack({ ...track, isTracking: true, start: Date.now() });
    };
 
-   /**
-    * Updates the render process every second, preventing loses 
-    * due to window reload, made for use in development
-    */
-   function update() {
-      ipc.async( channels.UPDATE_TRACK, { ...track, ...settings } );
-   };
 
    /**
     * Stops the timer and resets the state
@@ -170,6 +227,7 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       stop,
       formatTimeToString,
       getCycleConclusion,
-      getElapsedTime
+      getElapsedTime,
+      getPomodoroState,
    }
 };

@@ -1,27 +1,8 @@
+import { useRef, useEffect } from "react";
+
 const { ipcRenderer } = window.electron;
 
 export default function useIPC() {
-   /**
-    * Pevents the callback from being called multiple times in a short time span
-    * @param ms debounce time in ms
-    * @returns function( callback )
-    */
-   function debouncer( ms ) {
-      let debounce = false;
-
-      return function ( callback ) {
-         if ( !debounce ) {
-            debounce = true;
-            
-            setTimeout( () => {
-               debounce = false;
-            }, ms );
-
-            return callback();
-         };
-      };
-   };
-
    /**
     * calls a IPC sendSync()
     * @param {string} channel 
@@ -41,25 +22,20 @@ export default function useIPC() {
    };
 
    /**
-    * Calls a IPC sendSync in the specified channel and memoizes the result to
-    * prevent unneeded ipc calls
-    * @returns { * } ipc return
+    * useEffect hook but with deep compare on the dependencies
+    * @param {Function} callback 
+    * @param {Array} dependencies 
     */
-   function constructor() {
-      let lastReturn = "";
-
-      return function ( channel ) {
-         if ( !lastReturn ) {
-            lastReturn = sync( channel );
-         };
-         return lastReturn;
-      };
+   function useDeepEqualEffect( callback, dependencies ) {
+      useEffect(
+         callback,
+         dependencies.map( dependency => JSON.stringify( dependency ) )
+      );
    };
 
    return {
-      debouncer,
       sync,
       async,
-      constructor
+      useDeepEqualEffect
    };
 }
