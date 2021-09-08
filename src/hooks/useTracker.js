@@ -9,7 +9,7 @@ import useIPC from "./useIPC";
  * @param {Boolean} shouldUsePomodoro 
  * @returns Functions to deal with the tracker
  */
-export default function useTracker( currentTrack, shouldUsePomodoro = true ) {   
+export default function useTracker( currentTrack, shouldUsePomodoro = false ) {   
    const ipc = useIPC();
 
    // set initial state
@@ -32,11 +32,11 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
       // get pomodoro state
       const [ pomodoroTime, stage ] = shouldUsePomodoro 
          ? getPomodoroState( currentTrack )
-         : undefined
+         : [ undefined, undefined ]
 
       // updates the state
       setTrack({
-         time:       shouldUsePomodoro ? pomodoroTime : currentTrack.time,
+         time:       shouldUsePomodoro ? pomodoroTime : getElapsedTime( currentTrack.start ),
          isTracking: true,
          start:      currentTrack.start,
          nextStage:  shouldUsePomodoro ? stage : "restTime" 
@@ -210,6 +210,8 @@ export default function useTracker( currentTrack, shouldUsePomodoro = true ) {
     * @returns {number} percent completed of the cycle
     */
    function getCycleConclusion() {
+      if ( !shouldUsePomodoro ) return 0
+
       let completion = ( 
          track.nextStage === "restTime"
             ? 1 - track.time / settings.workTime

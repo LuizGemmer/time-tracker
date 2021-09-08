@@ -24,13 +24,12 @@ export default function Home() {
          setTrackProject( currentTrack ? currentTrack.project : projects[ 0 ] );
          setTrack( currentTrack );
          
-         console.log(currentTrack)
          setOptions( projects )
       },
       [ track ]
    );
 
-   const tracker = useTracker( track ); 
+   const tracker = useTracker( track, false ); 
 
    const addProject = () => {
       let project = {
