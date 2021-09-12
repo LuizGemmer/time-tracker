@@ -6,4 +6,9 @@ module.exports = {channels: {
   ADD_PROJECT:          "add:project",
 
   APP_INIT:             "app:init",
+
+  GET_SETTINGS:         "settings:get",
+  
+  UPDATE_THEMES:        "theme:update",
+  PREVIEW_THEME:        "theme:preview"
 }}

@@ -91,3 +91,7 @@ ipcMain.on( channels.APP_INIT, e => {
     isTracking ? currentTrack : undefined
   ]; 
 });
+
+ipcMain.on( channels.GET_SETTINGS, e => {
+  e.returnValue = store.settings;
+} );

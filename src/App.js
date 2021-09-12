@@ -5,6 +5,7 @@ import theme from "./theme"
 import Helpers from "./styles/Helpers"
 import GlobalStyles from "./styles/GlobalStyles"
 import AppDrawer from "./Components/AppDrawer";
+import Settings from "./windows/Settings"
 
 import HomeIcon from "@material-ui/icons/Home";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
@@ -15,12 +16,12 @@ import { ThemeProvider } from "@material-ui/core"
 import { ThemeProvider as StyleTheme } from "styled-components"
 
 function App() {
-  const [tab, setTab] = useState( 0 );
+  const [ tab, setTab ] = useState( 0 );
 
   const tabs = [
     { label: "Home", component: <Home />, icon: <HomeIcon /> },
     { label: "Projects", component: <Home />, icon: <AccountTreeIcon /> },
-    { label: "Settings", component: <Home />, icon: <SettingsIcon /> },
+    { label: "Settings", component: <Settings />, icon: <SettingsIcon /> },
     { label: "About", component: <Home />, icon: <MenuBookIcon /> },
   ]
 
@@ -32,11 +33,11 @@ function App() {
           tab={ tab }
           changeTab={ ( newTab ) => setTab( newTab ) }
         />
-        <Helpers.CenterFlex 
+        <Helpers.Flex
           column 
           height="calc( 100% - 48px )"
           width="calc( 100% - 57px )" 
-          margin="0 57px"  
+          margin={ tab !== 0 ? "1rem 57px" : "0px 57px" }  
         >
           
             <StyleTheme theme={ theme }>
@@ -46,7 +47,7 @@ function App() {
               { tabs[ tab ].component }
             </StyleTheme>
 
-        </Helpers.CenterFlex>
+        </Helpers.Flex>
       </ThemeProvider>
     </React.Fragment>
   );

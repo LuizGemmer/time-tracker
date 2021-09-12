@@ -26,7 +26,11 @@ const TextInput = styled.input`
     ) };
    color:         ${ props => props.theme.palette.text.primary };
    border:        none;
-   border-bottom: 2px solid ${ props => props.theme.palette.primary.main };
+   border-bottom: 2px solid ${ props => props.error ? (
+      props.theme.palette.error.main     
+   ) : (
+      props.theme.palette.primary.main
+   ) };
 
    width:   ${ props => props.width || "auto" };
    height:  35px;
@@ -67,7 +71,7 @@ const SelectInput = styled.select`
       background: ${ props => (
          props.transparent
             ? props.theme.palette.background.paper
-            : "inherit"
+            : props.theme.palette.background.default
       )}
    }
 `;
@@ -76,6 +80,7 @@ const Label = styled.label`
    display:        flex;
    flex-direction: column;
    width:          ${ props => props.width || "auto" };
+   margin:         ${ props => props.margin || "0 0" };
 
    color: ${ props => props.theme.palette.text.secondary };
 `;
@@ -83,6 +88,8 @@ const Label = styled.label`
 const Flex = styled.div`
    display: flex;
    flex-direction:   ${ props => props.column ? "column" : "row" };
+   justify-content:  ${ props => props.justifyContent && props.justifyContent };
+   align-items:      ${ props => props.alignItems && props.alignItems };
    height:           ${ props => props.height || "auto" };
    width:            ${ props => props.width || "auto" };
    margin:           ${ props => props.margin || "auto" };
@@ -94,7 +101,12 @@ const Font = styled.span`
    padding: ${ props => props.padding || "auto" };
    
    font-size:     ${ props => props.size || "auto" };
-   color:         ${ props => props.theme.palette.text[ props.tone ] };
+   color:         ${ props => props.error ? (
+         props.theme.palette.error.main
+      ) : (
+         props.theme.palette.text[ props.tone ] 
+      ) 
+   };
    font-weight:   ${ props => props.weight }
 `;
 
