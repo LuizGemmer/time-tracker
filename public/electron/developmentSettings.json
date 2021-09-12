@@ -1,1 +1,64 @@
-{"theme":"dark"}
+{
+  "theme": {
+    "selected": "dark",
+    "themes": {
+      "dark": {
+        "type": "dark",
+        "name": "Dark",
+        "colors": {
+          "background": "",
+          "paper": "",
+          "primary": "",
+          "secondary": ""
+        }
+      },
+      "light": {
+        "type": "light",
+        "name": "Light",
+        "colors": {
+          "background": "",
+          "paper": "",
+          "primary": "",
+          "secondary": ""
+        }
+      },
+      "custom1": {
+        "name": "Custom 1",
+        "type": "",
+        "colors": {
+          "background": "",
+          "paper": "",
+          "primary": "",
+          "secondary": ""
+        }
+      },
+      "custom2": {
+        "name": "Custom 2",
+        "type": "",
+        "colors": {
+          "background": "",
+          "paper": "",
+          "primary": "",
+          "secondary": ""
+        }
+      },
+      "custom3": {
+        "name": "Custom 3",
+        "type": "",
+        "colors": {
+          "background": "",
+          "paper": "",
+          "primary": "",
+          "secondary": ""
+        }
+      }
+    }
+  },
+  "pomodoro": {
+    "restTime": 300,
+    "workTime": 1500,
+    "usePomodoro": true,
+    "notifyOnCycleChange": true,
+    "playSoundOnCycleChange": true
+  }
+}

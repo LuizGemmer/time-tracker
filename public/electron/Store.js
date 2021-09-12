@@ -21,10 +21,69 @@ class Store {
       },
    
       settings: {
-         theme: "dark",
+         theme: {
+            selected: "dark",
+            dark: {
+               type: "dark",
+               name: "Dark",
+               colors: {
+                  background: "",
+                  paper: "",
+                  primary: "",
+                  secondary: ""
+               }
+            },
+            light: {
+               type: "light",
+               name: "Light",
+               colors: {
+                  background: "",
+                  paper: "",
+                  primary: "",
+                  secondary: ""
+               }
+            },
+            custom1: {
+               type: "",
+               name: "Custom 1",
+               colors: {
+                  background: "",
+                  paper: "",
+                  primary: "",
+                  secondary: ""
+               }
+            },
+            custom2: {
+               type: "",
+               name: "Custom 2",
+               colors: {
+                  background: "",
+                  paper: "",
+                  primary: "",
+                  secondary: ""
+               }
+            },
+            custom3: {
+               type: "",
+               name: "Custom 3",
+               colors: {
+                  background: "",
+                  paper: "",
+                  primary: "",
+                  secondary: ""
+               }
+            }
+         },
+         pomodoro: {
+            restTime: 5 * 60,
+            workTime: 25 * 60,
+            usePomodoro: true,
+            notifyOnCycleChange: true,
+            playSoundOnCycleChange: true,
+         }
       }
    };
-
+   
    constructor() {
       // Var holding user's file's paths
       this.paths = {
